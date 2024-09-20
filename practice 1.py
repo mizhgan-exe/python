@@ -62,7 +62,7 @@ num_1=2
 num_2=3 
 num_3=4 
 degree = num_1 ** num_2 ** num_3
-ptint ("Числа в степени:", degree)
+print ("Числа в степени:", degree)
 
 num_1=2
 num_2=8 
