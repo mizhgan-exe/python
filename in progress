@@ -1,0 +1,20 @@
+#Задание 1
+age=int(input("Введите возраст:"))
+if age < 18:
+    print ("Вы малой")
+elif age > 18 and age <= 65:
+    print ("Вы можете воркать")
+else:
+    print ("Вы старый")
+
+#Задание 2
+price=input("Введите прайс:")
+pricek=float(price)
+if pricek < 1000:
+    print("Скидки нема")
+elif pricek > 1000 and pricek <= 5000:
+    print("Скидка будет:", pricek * 0.05)
+else:
+    print ("Скидка будет:", pricek * 0.1)
+
+#Задание 3
