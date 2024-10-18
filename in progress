@@ -17,7 +17,7 @@ elif pricek > 1000 and pricek <= 5000:
 else:
     print ("Скидка будет:", pricek * 0.1)
 
-#Ex 3
+#Задание 3
 n1 = float(input("Первое число "))
 n2 = float(input("Второе число"))
 op= input("Операция(+,-, *, /):")
@@ -38,7 +38,7 @@ else:
 
 print(f"{n1} {op} {n2} = {res}")
 
-#Ex 5
+#Задание 5
 password_correct = '123456789'
 while True:
     password = input("Введите пароль:")
