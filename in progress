@@ -79,3 +79,12 @@ def check_square(coordinate):
 user_input = input("Введите координаты квадрата (например, B1): ")
 res = check_square(user_input)
 print(res)
+
+#Задание 7
+n = int(input("Введите число n: "))
+k = int(input("Введите число k: "))
+
+if k != 0 and n % k == 0:
+    print(f"{n} кратно {k}")
+else:
+    print(f"{n} не кратно {k} или k равно 0")
