@@ -38,6 +38,13 @@ else:
 
 print(f"{n1} {op} {n2} = {res}")
 
+#Задание 4
+number = int(input("Введите число: "))
+if number % 2 == 0 and (number % 10 == 2 or number % 10 == 6):
+    print(True)
+else:
+    print(False)
+
 #Задание 5
 password_correct = '123456789'
 while True:
@@ -88,3 +95,37 @@ if k != 0 and n % k == 0:
     print(f"{n} кратно {k}")
 else:
     print(f"{n} не кратно {k} или k равно 0")
+
+#Задание 8
+def check_player_status(level, health):
+    if level < 0 or health < 0 or health > 100:
+        return "Некорректные данные."
+    
+    if level < 5:
+        return "Ваш уровень слишком низкий для выполнения миссии."
+    
+    if health > 50:
+        return "Вы готовы к миссии!"
+    elif 20 <= health <= 50:
+        return "Ваше здоровье низкое, будьте осторожны."
+    else:  # здоровье < 20
+        return "Ваше здоровье слишком низкое для выполнения миссии."
+
+#Задание 8
+def check_player_status(level, health):
+    if level < 0 or health < 0 or health > 100:
+        return "Некорректные данные."
+    if level < 5:
+        return "Ваш уровень слишком низкий для выполнения миссии."
+    if health > 50:
+        return "Вы готовы к миссии!"
+    elif 20 <= health <= 50:
+        return "Ваше здоровье низкое, будьте осторожны."
+    else:  # здоровье < 20
+        return "Ваше здоровье слишком низкое для выполнения миссии."
+        
+player_level = int(input("Введите уровень игрока: "))
+player_health = int(input("Введите количество здоровья игрока: "))
+message = check_player_status(player_level, player_health)
+print(message)
+
