@@ -97,35 +97,38 @@ else:
     print(f"{n} не кратно {k} или k равно 0")
 
 #Задание 8
-def check_player_status(level, health):
-    if level < 0 or health < 0 or health > 100:
-        return "Некорректные данные."
-    
-    if level < 5:
-        return "Ваш уровень слишком низкий для выполнения миссии."
-    
-    if health > 50:
-        return "Вы готовы к миссии!"
-    elif 20 <= health <= 50:
-        return "Ваше здоровье низкое, будьте осторожны."
-    else:  # здоровье < 20
-        return "Ваше здоровье слишком низкое для выполнения миссии."
+lvl=input()
+health=int(input())
+if lvl >= 5:
+elif health > 50 and health<= 100:
+    print("Вы готовы к миссии!")
+elif health >= 20 and health <= 50:
+    print("Ваше здоровье низкое, будьте осторожны.")
+elif health <20:
+    print("Ваше здоровье слишком низкое для выполнения миссии.")
+else:
+    print("Некорректные данные.")
 
-#Задание 8
-def check_player_status(level, health):
-    if level < 0 or health < 0 or health > 100:
-        return "Некорректные данные."
-    if level < 5:
-        return "Ваш уровень слишком низкий для выполнения миссии."
-    if health > 50:
-        return "Вы готовы к миссии!"
-    elif 20 <= health <= 50:
-        return "Ваше здоровье низкое, будьте осторожны."
-    else:  # здоровье < 20
-        return "Ваше здоровье слишком низкое для выполнения миссии."
-        
-player_level = int(input("Введите уровень игрока: "))
-player_health = int(input("Введите количество здоровья игрока: "))
-message = check_player_status(player_level, player_health)
-print(message)
+#Задание 9
+inventory = ["яблоко", "шариковая ручкая"]
+if "ключ" in inventory and "фонарь" in inventory:
+    print("Вы можете пройти через дверь.")
+elif "ключ" not in inventory:
+    print("У вас нет ключа, вы не можете открыть дверь")
+elif "фонарь" not in inventory:
+    print("У вас нет фонаря, слишком темно, чтобы пройти")
+else:
+    print("У вас нет ни ключа, ни фонаря, вы не можете пройти через дверь.")
 
+#Задание 10
+king = "Enemies are coming! Are the archers ready?"
+warrior = "For the Alliance!"
+magician = "The spell is ready."
+if "?" in king or "!" in king:
+    print("Есть одно из них в словах короля")
+elif "?" in warrior or "!" in warrior:
+    print("Есть одно из них в словах воина")
+elif "?" in magician or "!" in magician:
+    print("Есть одно из них в словах мага")
+else:
+    print("alo")
