@@ -1,3 +1,31 @@
+#Задание 1
+import os
+import subprocess
+
+class GameLauncher:
+    def __init__(self, game_name, executable_path):
+        self.game_name = game_name
+        self.executable_path = executable_path
+
+    def run(self):
+        if os.path.exists(self.executable_path):
+            try:
+                subprocess.Popen(self.executable_path)
+                print(f"Игра {self.game_name} успешно запущена с пути: {self.executable_path}")
+            except Exception as e:
+                print(f"Ошибка запуска {self.game_name}: {e}")
+        else:
+            print(f"Ошибка: Игра {self.game_name} не запущена. Путь {self.executable_path} не найден.")
+
+if __name__ == "__main__":
+    minecraft = GameLauncher("Minecraft", r"C:\Games\Minecraft\MinecraftLauncher.exe")
+    gta5 = GameLauncher("GTA V", r"D:\Rockstar Games\GTA V\GTA5.exe")
+    genshin = GameLauncher("Genshin Impact", r"C:\Games\Genshin Impact\GenshinImpact.exe")
+
+    minecraft.run()
+    gta5.run()
+    genshin.run()
+
 # Задание 2
 class File:
     def __init__(self, filename, size):
@@ -34,3 +62,111 @@ image_file.open()
 
 print(text_file.info())
 print(image_file.info())
+
+#Задание 3
+class Racing_Car:
+    def __init__(self, brand, model, color, number):
+        self.brand = brand
+        self.model = model
+        self.color = color
+        self.number = number
+
+    def info_car(self):
+        print(f"Участник №{self.number}\nАвтомобиль: {self.color} {self.brand} {self.model}")
+
+class Race:
+    def __init__(self, name_race):
+        self.name_race = name_race
+        self.race_cars = []
+
+    def append_participants(self, *cars):
+        for car in cars:
+            self.race_cars.append(car)
+
+
+    def __print_participants(self):
+        print("Участники гонки:")
+        for car in self.race_cars:
+            print(f"№{car.number} {car.brand} {car.model}")
+
+    def start_race(self):
+        print(f"{self.name_race} скоро старт!")
+        self.__print_participants()
+        print("Гонка началась.")
+
+car_1 = Racing_Car("BMW", "M4", "черный", 444)
+car_1.info_car()
+
+car_2 = Racing_Car("Porsche", "911", "чёрный", 999)
+car_2.info_car()
+
+race_1 = Race("Кольцевые автогонки")
+race_1.append_participants(car_1, car_2)
+race_1.start_race()
+
+#Задание 4
+class MusicFile:
+    def play(self):
+        print("Воспроизведение аудио файла...")
+
+class MP3File(MusicFile):
+    def play(self):
+        print("Воспроизведение MP3 файла")
+
+class WAVFile(MusicFile):
+    def play(self):
+        print("Воспроизведение WAV файла")
+
+class FLACFile(MusicFile):
+    def play(self):
+        print("Воспроизведение FLAC файла")
+
+def play_music(files: list):
+    for file in files:
+        file.play()
+
+if __name__ == "__main__":
+    files = [
+        MP3File(),
+        WAVFile(),
+        FLACFile()
+    ]
+
+    play_music(files)
+
+#Задание 5
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def move(self):
+        pass
+
+    @abstractmethod
+    def fuel_type(self):
+        pass
+
+class Car(Vehicle):
+    def move(self):
+        return "Автомобиль едет по дороге"
+
+    def fuel_type(self):
+        return "Бензин"
+
+class Boat(Vehicle):
+    def move(self):
+        return"Лодка плывет по воде"
+
+    def fuel_type(self):
+        return "Дизель"
+
+def test_transport(vehicles):
+        for vehicle in vehicles:
+            print(vehicle.move())
+            print(f"Тип топлива: {vehicle.fuel_type()}\n")
+
+if __name__ == "__main__":
+    car = Car()
+    boat = Boat()
+
+    test_transport([car, boat])
